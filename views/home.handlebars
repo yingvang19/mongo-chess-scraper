@@ -1,0 +1,96 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <a class="navbar-brand" href="/">Mongo Chess Scraper</a>
+  <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false"
+    aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/saved">Saved Chess Articles</a>
+      </li>
+      {{#if home}}
+      <li class="nav-item">
+        <a class="btn btn-danger scrape-new">SCRAPE NEW CHESS ARTICLES!</a>
+      </li>
+      {{/if}}
+      <li class="nav-item">
+        <a class="btn btn-danger clear">CLEAR CHESS ARTICLES!</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <div class="overlay">
+  </div>
+  <div class="background-image">
+  </div>
+  <div class="caption">
+    {{#if home}}
+    <h1>Mongo Chess Scraper</h1>
+    <p>World Chess News</p>
+    {{else}}
+    <h1>Saved Chess Articles</h1>
+    <p>Your Saved Chess Articles</p>
+    {{/if}}
+  </div>
+</div>
+  
+
+<div class="container-fluid article-container">
+   <!-- scroll to top button -->
+ <button onclick="topFunction()" id="myBtn" title="Go to top"></button>
+
+
+{{#if article}}
+  {{#each article}}
+  <div data-_id={{this._id}} class="card">
+    <div class="card-header">
+      <h3>
+        <a class="article-link" href="{{url}}" target="_blank">{{this.headline}}</a>
+        <button class="btn btn-success save">Save Chess Article</button>
+      </h3>
+    </div>
+    <div class="card-body">{{this.summary}}</div>
+    <a href="{{url}}" target='_blank'><img src="{{this.images}}" height='200'></img> </a>
+  </div>
+  {{/each}}
+</div>
+{{else}}
+  <div class='alert alert-warning text-center'>
+    <h4>Sorry. No new chess articles.</h4>
+  </div>
+  <div class="card">
+    <div class="card-body text-center">
+      <h4>
+        <a class="scrape-new">Try Scraping New Chess Articles</a>
+      </h4>
+      <h4>
+        <a href="/saved">Go to Saved Chess Articles</a>
+      </h4>
+    </div>
+  </div>
+{{/if}}
+
+
+<footer class="footer">
+  <div class="container">
+    <p>Mongo Chess Scraper &copy 2019</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script src="/assets/javascript/index.js"></script>
+
+
+
