@@ -4,7 +4,8 @@ const mongoose = require("mongoose");
 
 const db = require("../models");
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/chessMongo";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:password1@ds251877.mlab.com:51877/heroku_px1f5z8j";
+
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 module.exports = function (app) {
