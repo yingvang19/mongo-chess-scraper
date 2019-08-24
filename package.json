@@ -2,15 +2,6 @@
   "requires": true,
   "lockfileVersion": 1,
   "dependencies": {
-    
-
-      "express":"*",
-      
-      "body-parser":"*",
-      
-      "bcrypt": "^0.8.5"
-      
-
     "@types/node": {
       "version": "10.12.0",
       "resolved": "https://registry.npmjs.org/@types/node/-/node-10.12.0.tgz",
