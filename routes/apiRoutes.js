@@ -3,7 +3,6 @@ const cheerio = require("cheerio");
 const mongoose = require("mongoose");
 
 const db = require("../models");
-
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoChess";
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
